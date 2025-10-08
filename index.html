@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finpay - Modern Landing Page Clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for Colors */
+        :root {
+            --dark-blue: #0A2540;
+            --teal-header: #2d8b9f;
+            --teal-dark: #126372;
+            --light-bg: #f5f7fa;
+            --text-color: #0A2540;
+            --gray-text: #596a7d;
+        }
+
+        /* Global Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header Styles --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        /* Logo is now an image wrapper */
+        .logo a {
+            display: flex; 
+            align-items: center;
+        }
+        .logo img {
+            height: 200px; 
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 600;
+        }
+        .nav-links a {
+            transition: color 0.2s;
+            color: var(--gray-text);
+        }
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+        
+        /* Auth Buttons Container */
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto; 
+        }
+        
+        .auth-buttons .login-btn {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 8px 15px;
+        }
+
+        .auth-buttons .signup-btn {
+            background-color: var(--teal-header);
+            color: white;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .auth-buttons .signup-btn:hover {
+            background-color: var(--teal-dark);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* --- Hero Section Styles --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; 
+            align-items: start;
+            gap: 80px;
+            padding: 60px 0 100px;
+        }
+
+        .hero-text h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: var(--gray-text);
+            margin-bottom: 40px;
+        }
+
+        /* Email Input Form */
+        .email-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 80px;
+        }
+
+        .email-form input[type="email"] {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            flex-grow: 1;
+            font-size: 16px;
+        }
+
+        .email-form button {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Supported Brands */
+        .supported-brands {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            opacity: 0.5;
+        }
+        .supported-brands img {
+            height: 75px; 
+            width: auto;
+        }
+
+        /* --- Card Section (Right Side) --- */
+        .hero-card-area {
+            position: relative;
+        }
+        .hero-card-area img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* --- Features Section Styles --- */
+        .features-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .features-content {
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .features-header {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .features-header .tagline {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--teal-header);
+            margin-bottom: 10px;
+        }
+
+        .features-header h2 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0;
+        }
+
+        .features-header p {
+            font-size: 18px;
+            color: var(--gray-text);
+            line-height: 1.5;
+            padding-top: 10px;
+        }
+
+        /* --- Individual Feature Boxes --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: left;
+        }
+
+        .feature-item {
+            padding-right: 20px;
+        }
+
+        /* Placeholder styling for the icon background */
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 1px solid rgba(45, 139, 159, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .icon-wrapper i {
+            font-size: 20px;
+            color: var(--teal-header);
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 16px;
+            color: var(--gray-text);
+        }
+
+        /* --- Why Us Section Styles --- */
+        .why-us-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .why-us-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .why-us-header .tagline {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--teal-header);
+            margin-bottom: 5px;
+        }
+
+        .why-us-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .why-us-box {
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 12px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Box 1: Stats */
+        .stat-box .stat-number {
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--teal-header);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-box .stat-desc {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        /* Box 2: Transfer */
+        .transfer-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .transfer-box .transfer-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .transfer-box .transfer-graphic {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+        }
+
+        .transfer-box .transfer-icon {
+            font-size: 20px;
+            color: white;
+            background-color: var(--teal-header);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .transfer-box .bank-icon {
+            font-size: 20px;
+            color: var(--dark-blue);
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background-color: var(--light-bg);
+            border: 1px solid var(--dark-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .transfer-box .arrow {
+            font-size: 24px;
+            color: var(--gray-text);
+        }
+
+        /* --- Asset Volatility Section Styles --- */
+        .volatility-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .volatility-content {
+            background-color: var(--light-bg);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.03);
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .volatility-text h2 {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .volatility-text p {
+            font-size: 18px;
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+
+        .volatility-graph-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .graph-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .graph-header .summary-title {
+            font-weight: 600;
+            color: var(--gray-text);
+            font-size: 14px;
+        }
+
+        .graph-header .summary-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            line-height: 1;
+        }
+
+        .graph-header .time-period {
+            font-size: 14px;
+            color: var(--dark-blue);
+            font-weight: 600;
+            padding: 5px 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+        .graph-header .time-period::after {
+            content: '⌄';
+            margin-left: 5px;
+            font-size: 12px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        /* Styling for the graph image itself */
+        .volatility-graph-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 20px;
+        }
+
+        /* --- Steps Section Styles --- */
+        .steps-section {
+            background-color: var(--dark-blue); 
+            color: white;
+            padding: 100px 0;
+        }
+
+        .steps-header {
+            max-width: 600px;
+            margin-bottom: 60px;
+        }
+
+        .steps-header .tagline {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--teal-header);
+            margin-bottom: 10px;
+        }
+
+        .steps-header h2 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        /* --- Steps Grid --- */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .step-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .step-item .step-number {
+            font-size: 80px;
+            font-weight: 900;
+            opacity: 0.1;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .step-item h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #E0E0E0; 
+        }
+
+        .step-item p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* --- Stats and Pricing Section Styles --- */
+        .stats-pricing-section {
+            background-color: white;
+            padding: 80px 0 100px;
+            text-align: center;
+        }
+
+        .stats-header {
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .stats-header .tagline {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--teal-header);
+            margin-bottom: 5px;
+        }
+
+        .stats-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .stats-header p {
+            font-size: 16px;
+            color: var(--gray-text);
+        }
+
+        /* --- Stats Row --- */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .stat-column .stat-value {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-column .stat-label {
+            font-size: 16px;
+            color: var(--gray-text);
+            font-weight: 600;
+        }
+        
+        /* --- Pricing Cards --- */
+        .pricing-callout {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .pricing-card {
+            width: 380px;
+            height: 300px;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Styling for the PLUS card (Light Background) */
+        .card-plus {
+            background-color: var(--light-bg);
+            color: var(--dark-blue);
+        }
+
+        /* Styling for the PREMIUM card (Teal Gradient Background) */
+        .card-premium {
+            background: linear-gradient(135deg, var(--teal-header) 0%, var(--teal-dark) 100%);
+            color: white;
+        }
+
+        .pricing-card .plan-name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .pricing-card .plan-price {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .pricing-card .plan-link {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 24px;
+        }
+        
+        /* Specific link colors for the arrow */
+        .card-plus .plan-link {
+            color: var(--dark-blue);
+        }
+        .card-premium .plan-link {
+            color: white;
+        }
+
+        /* --- CTA Section Styles --- */
+        .cta-section {
+            padding: 0 0 100px;
+        }
+
+        .cta-block {
+            background-color: #0d324d; 
+            color: white;
+            padding: 80px 100px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cta-text {
+            max-width: 55%;
+        }
+
+        .cta-text .tagline {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--teal-header);
+            margin-bottom: 5px;
+        }
+
+        .cta-text h2 {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .cta-text p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        /* --- CTA Buttons --- */
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .cta-buttons .btn {
+            text-decoration: none;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Primary Button: Get Started Now (Teal Fill) */
+        .btn-primary {
+            background-color: var(--teal-header);
+            color: white;
+            border-color: var(--teal-header);
+        }
+        .btn-primary:hover {
+            background-color: var(--teal-dark);
+            border-color: var(--teal-dark);
+        }
+
+        /* Secondary Button: Learn More (Outline) */
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+        
+        .btn-secondary i {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        /* --- Footer Styles --- */
+        .main-footer {
+            background-color: var(--light-bg);
+            padding: 50px 0 10px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .footer-logo-col {
+            flex-basis: 20%;
+        }
+        
+        .footer-logo-col .logo img {
+            height: 150px;
+            filter: brightness(0.5);
+        }
+
+        /* Footer Navigation Columns */
+        .footer-nav-col {
+            flex-grow: 1;
+            max-width: 150px;
+        }
+
+        .footer-nav-col h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .footer-nav-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-nav-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-nav-col ul li a {
+            font-size: 14px;
+            color: var(--gray-text);
+            transition: color 0.2s;
+        }
+        .footer-nav-col ul li a:hover {
+            color: var(--teal-header);
+        }
+        
+        /* Social Media Column */
+        .social-col {
+            max-width: 150px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            font-size: 18px;
+            color: var(--gray-text);
+            transition: color 0.2s;
+        }
+        .social-icons a:hover {
+            color: var(--teal-header);
+        }
+
+        /* Copyright Row */
+        .footer-copyright {
+            text-align: center;
+            padding: 20px 0 10px;
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 48px;
+            }
+            
+            .features-header {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .features-header h2 {
+                font-size: 36px;
+            }
+            
+            .volatility-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .cta-block {
+                padding: 60px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                position: relative;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .supported-brands {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .pricing-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-card {
+                width: 100%;
+                max-width: 380px;
+            }
+            
+            .cta-block {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .cta-text {
+                max-width: 100%;
+            }
+            
+            .footer-content {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
+            .footer-nav-col {
+                max-width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            
+            .hero-text p {
+                font-size: 16px;
+            }
+            
+            .features-content {
+                padding: 30px 20px;
+            }
+            
+            .features-header h2 {
+                font-size: 28px;
+            }
+            
+            .volatility-content {
+                padding: 30px 20px;
+            }
+            
+            .volatility-text h2 {
+                font-size: 32px;
+            }
+            
+            .steps-header h2 {
+                font-size: 36px;
+            }
+            
+            .cta-block {
+                padding: 40px 20px;
+            }
+            
+            .cta-text h2 {
+                font-size: 28px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer-nav-col {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header container">
+        <div class="logo">
+                <img src="./logo.png" alt="Finpay Logo" >
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="#">Products</a>
+            <a href="#">Customers</a>
+            <a href="#">Pricing</a>
+            <a href="#">Learn</a>
+        </nav>
+        
+        <div class="auth-buttons">
+            <a href="#" class="login-btn">Login</a>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </header>
+
+    <main class="hero container">
+        <div class="hero-text">
+            <h1>Get paid early save automatically all your pay.</h1>
+            <p>Supports small businesses with simple invoicing, powerful integrations, and cash flow management tools.</p>
+
+            <form class="email-form">
+                <input type="email" placeholder="Your business email" required>
+                <button type="submit">Get Started <i class="fas fa-arrow-right"></i></button>
+            </form>
+
+            <div class="supported-brands">
+                <img src="./klarna_8_1.png" alt="Klarna Logo" >
+                <img src="./Coinbase_Wordmark-719a982e55e945fc93a3b1770b6a9aa9.png" alt="Coinbase Logo">
+                <img src="./images.png" alt="Instacart Logo">
+            </div>
+        </div>
+
+        <div class="hero-card-area">
+            <img src="./hero.png" alt="Finpay Dashboard">
+        </div>
+    </main>
+    
+    <section class="features-section">
+        <div class="container">
+            <div class="features-content">
+                
+                <div class="features-header">
+                    <div>
+                        <div class="tagline">Future Payment</div>
+                        <h2>Experience that grows with your scale.</h2>
+                    </div>
+                    <p>Design a financial operating system that works for your business and streamlined cash flow management</p>
+                </div>
+
+                <div class="features-grid">
+                    
+                    <div class="feature-item">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-redo-alt"></i> 
+                        </div>
+                        <h3>Free transfers</h3>
+                        <p>Create a financial experience and automate repeat purchases by scheduling recurring payments.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Multiple account</h3>
+                        <p>Run your operations with cash from your account and generate yield on funds stored in your account.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Unmatched security</h3>
+                        <p>Securely manage your finances with organization-wide MFA, card-locking, and account-level controls.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="why-us-section">
+        <div class="container">
+            <div class="why-us-header">
+                <div class="tagline">Why Us</div>
+                <h2>Why they prefer Finpay</h2>
+            </div>
+
+            <div class="why-us-grid">
+                
+                <div class="why-us-box stat-box">
+                    <div>
+                        <div class="stat-number">3k+</div>
+                    </div>
+                    <div class="stat-desc">
+                        Businesses already running on Finpay
+                    </div>
+                </div>
+
+                <div class="why-us-box transfer-box">
+                    <div class="transfer-text">
+                        Instant Withdraw your funds at any time
+                    </div>
+                    <div class="transfer-graphic">
+                        <div class="transfer-icon">
+                            <i class="fas fa-feather-alt"></i> 
+                        </div>
+
+                        <div class="arrow">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+
+                        <div class="bank-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="volatility-section">
+        <div class="container">
+            <div class="volatility-content">
+                <div class="volatility-text">
+                    <h2>No asset volatility</h2>
+                    <p>Generate returns on your cash reserves without making any investments.</p>
+                </div>
+
+                <div class="volatility-graph-container">
+                    <div class="graph-header">
+                    <img src="./chart.png" alt="Finpay Asset Volatility Graph"> 
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="steps-section">
+        <div class="container">
+            <div class="steps-header">
+                <div class="tagline">Step</div>
+                <h2>Maximize your returns with a Reserve account that generates.</h2>
+            </div>
+
+            <div class="steps-grid">
+                
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Open your account</h3>
+                    <p>Sign up to finpay and set up your account from the dashboard.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Transfer your money</h3>
+                    <p>Move money from to another account into and start to earning up.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Watch your balance grow</h3>
+                    <p>Accessed instantly and remain insulated from market volatility.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats-pricing-section">
+        <div class="container">
+            
+            <div class="stats-header">
+                <div class="tagline">Our Mission</div>
+                <h2>We've helped innovative companies</h2>
+                <p>Hundreds of all sizes and across all industries have made a big improvements with us.</p>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-column">
+                    <div class="stat-value">24%</div>
+                    <div class="stat-label">Revenue business</div>
+                </div>
+                <div class="stat-column">
+                    <div class="stat-value">180K</div>
+                    <div class="stat-label">In annual revenue</div>
+                </div>
+                <div class="stat-column">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-label">Months of runway</div>
+                </div>
+            </div>
+            
+            <div class="pricing-callout">Choose Plan:</div>
+
+            <div class="pricing-grid">
+                
+                <a href="#" class="pricing-card card-plus">
+                    <div>
+                        <div class="plan-name">Plus</div>
+                    </div>
+                    <div>
+                        <div class="plan-price">£2.99/month</div>
+                        <div class="plan-link"><i class="fas fa-arrow-right"></i></div> 
+                    </div>
+                </a>
+
+                <a href="#" class="pricing-card card-premium">
+                    <div>
+                        <div class="plan-name">Premium</div>
+                    </div>
+                    <div>
+                        <div class="plan-price">£6.99/month</div>
+                        <div class="plan-link"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-block">
+                <div class="cta-text">
+                    <div class="tagline">Try It Now</div>
+                    <h2>Ready to level up your payment process?</h2>
+                    <p>Supports small businesses with simple invoicing, powerful integrations, and cash flow management tools.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="/get-started" class="btn btn-primary">Get Started Now</a>
+                    <a href="/learn" class="btn btn-secondary">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="main-footer">
+        <div class="container footer-content">
+            
+            <div class="footer-logo-col">
+                <div class="logo">
+                    <img src="./logo.png" alt="Finpay Logo">
+                </div>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">Small Business</a></li>
+                    <li><a href="#">Freelancers</a></li>
+                    <li><a href="#">Customers</a></li>
+                    <li><a href="#">Taxes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Ebooks</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Templates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-col social-col">
+                <h4>Follow us on</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-copyright container">
+            &copy; Finpay 2024. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
