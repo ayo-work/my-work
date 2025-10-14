@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Finpay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* --- General Styles (Matching Finpay Theme) --- */
+        :root {
+            /* Define your color palette based on the landing page */
+            --dark-blue: #1c4566;       /* Primary Dark Blue */
+            --teal-header: #2d8b9f;     /* Primary Teal/Cyan */
+            --teal-dark: #1f6470;       /* Darker Teal for hover */
+            --gray-text: #6b778d;       /* Body Text Gray */
+            --light-bg: #f8faff;        /* Light Background for sections */
+            --text-color: #333333;      /* Dark text */
+            --border-color: #e0e0e0;    /* Light border color */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Use your preferred font */
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--teal-header);
+        }
+        
+        /* --- Sign Up Container --- */
+        .signup-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Logo and Header --- */
+        .signup-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        /* The designated spot for the logo image */
+        .signup-logo {
+            margin-bottom: 20px;
+        }
+        .signup-logo img {
+            height: 95px; /* Adjust size as needed */
+            max-width: 100%;
+        }
+
+        .signup-header h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .signup-header p {
+            color: var(--gray-text);
+            font-size: 15px;
+        }
+
+        /* --- Form Styles --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--teal-header);
+            box-shadow: 0 0 0 2px rgba(45, 139, 159, 0.2);
+        }
+
+        /* --- Submit Button --- */
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--teal-header);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--teal-dark);
+        }
+
+        /* --- Footer Link --- */
+        .signup-footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+        
+        .signup-footer a {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        
+        <div class="signup-header">
+            
+            <div class="signup-logo">
+                <a href="/">
+                    <img src="logo.png" alt="Finpay Logo">
+                </a>
+            </div>
+            <h2>Create your Finpay account</h2>
+            <p>Get started with free transfers and unmatched security.</p>
+        </div>
+
+        <form action="/submit_signup" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="full_name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="name@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Minimum 8 characters">
+            </div>
+
+            <button type="submit" class="btn-submit">Sign Up</button>
+        </form>
+
+        <div class="signup-footer">
+            Already have an account? <a href="./log in.html">Log in here</a>
+        </div>
+    </div>
+</body>
+</html>
